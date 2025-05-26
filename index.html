@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+[17:40, 5/26/2025] احسان: <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -11,7 +11,7 @@
       font-family: 'Georgia', serif;
     }
     body {
-      background: url('https://i.imgur.com/F2bJYMF.jpg') no-repeat center center fixed; /* стол */
+      background: url('https://cdn.pixabay.com/photo/2017/08/07/20/20/wood-2606586_1280.jpg') no-repeat center center fixed;
       background-size: cover;
       height: 100vh;
       overflow: hidden;
@@ -26,7 +26,7 @@
     }
 
     #openBtn {
-      background: url('https://i.imgur.com/jMGI1iK.png') no-repeat center center; /* красная печать */
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Seal_of_the_United_States_Department_of_Justice.svg/1024px-Seal_of_the_United_States_Department_of_Justice.svg.png') no-repeat center center;
       background-size: contain;
       width: 200px;
       height: 200px;
@@ -139,8 +139,162 @@
   };
 
   function sayYes() {
-    document.body.style.background = "url('https://i.imgur.com/F2bJYMF.jpg') no-repeat center center fixed";
-    document.body.style.backgroundSize = "cover";
+    questionContainer.style.display = "none";
+    finalMessage.style.display = "block";
+  }
+
+  noBtn.onmouseover = function () {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  };
+</script>
+
+</body>
+</html>
+[17:41, 5/26/2025] احسان: <!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сюрприз</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }
+    body {
+      background: url('https://cdn.pixabay.com/photo/2017/08/07/20/20/wood-2606586_1280.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    #openBtn {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Seal_of_the_United_States_Department_of_Justice.svg/1024px-Seal_of_the_United_States_Department_of_Justice.svg.png') no-repeat center center;
+      background-size: contain;
+      width: 200px;
+      height: 200px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #questionContainer {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #question {
+      font-size: 36px;
+      color: #4b2e2e;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px 30px;
+      border-radius: 10px;
+    }
+
+    .answerBtn {
+      background: #d94e4e;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    #finalMessage {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      color: #ffffff;
+      text-align: center;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .heart {
+      width: 300px;
+      height: 270px;
+      background: transparent;
+      position: relative;
+      transform: rotate(-45deg);
+      margin: auto;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 300px;
+      height: 270px;
+      position: absolute;
+      background: transparent;
+      border: 5px solid white;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      left: 150px;
+      top: 0;
+    }
+
+    .heart::after {
+      left: 0;
+      top: -150px;
+    }
+
+    #noBtn {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+<div class="center" id="startScreen">
+  <button id="openBtn"></button>
+</div>
+
+<div class="center" id="questionContainer">
+  <div id="question">Выйдешь за меня?</div>
+  <div>
+    <button class="answerBtn" onclick="sayYes()">Да</button>
+    <button class="answerBtn" id="noBtn">Нет</button>
+  </div>
+</div>
+
+<div id="finalMessage">
+  <div class="heart"></div>
+  <p>Ихсан + Раяна = ∞</p>
+</div>
+
+<script>
+  const openBtn = document.getElementById("openBtn");
+  const startScreen = document.getElementById("startScreen");
+  const questionContainer = document.getElementById("questionContainer");
+  const noBtn = document.getElementById("noBtn");
+  const finalMessage = document.getElementById("finalMessage");
+
+  openBtn.onclick = () => {
+    startScreen.style.display = "none";
+    questionContainer.style.display = "flex";
+  };
+
+  function sayYes() {
     questionContainer.style.display = "none";
     finalMessage.style.display = "block";
   }
